@@ -165,7 +165,7 @@ public class MainActivity extends FragmentActivity implements
 //create  homeFrag, campusMap frag, courseMapFrag class. Each class will load a 
 //seperate layout file, have each frag Class in its own file	
 	
-	public static class HomeFragment extends fragment{
+	public static class HomeFragment extends Fragment{
 		public static final String ARG_SECTION_NUMBER = "section_number";
 			public HomeFragment(){		
 			}
@@ -184,9 +184,9 @@ public class MainActivity extends FragmentActivity implements
 		
 	}
 	
-	public static class SUMapFragment extends fragment{
+	public static class SUMapFragment extends Fragment{
 		public static final String ARG_SECTION_NUMBER = "section_number";
-			public CampusMapFragment(){	
+			public SUMapFragment(){	
 			
 			}
 			
@@ -207,7 +207,7 @@ public class MainActivity extends FragmentActivity implements
 		
 	}
 	
-	public static class CourseMapFragment extends fragment{
+	public static class CourseMapFragment extends Fragment{
 		public static final String ARG_SECTION_NUMBER = "section_number";
 			public CourseMapFragment(){				
 			}
