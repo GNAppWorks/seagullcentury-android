@@ -120,8 +120,18 @@ public class MainActivity extends FragmentActivity implements
 			// below) with the page number as its lone argument.
 	//Dummy section is one activity, must create a new activity for each tab.
 	//if position == 1 ... load correct frag
-			Fragment fragment = new DummySectionFragment();
+			Fragment fragment = null;
+			switch(position){
+			case 0:
+				fragment = new SUMapFragment();
+			case 1:
+				fragment = new CourseMapFragment();
+			case 2:
+				fragment = new HomeFragment();
+			}
+			
 			Bundle args = new Bundle();
+			
 			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
 			fragment.setArguments(args);
 			return fragment;
@@ -153,8 +163,69 @@ public class MainActivity extends FragmentActivity implements
 	 * displays dummy text.
 	 */
 //create  homeFrag, campusMap frag, courseMapFrag class. Each class will load a 
-//seperate layout file, have each frag Class in its own file	 
-	 
+//seperate layout file, have each frag Class in its own file	
+	
+	public static class HomeFragment extends fragment{
+		public static final String ARG_SECTION_NUMBER = "section_number";
+			public HomeFragment(){		
+			}
+			
+			@Override
+			public View onCreateView(LayoutInflater inflater, ViewGroup container,
+					Bundle savedInstanceState) {
+				View rootView = inflater.inflate(R.layout.fragment_main_dummy,
+						container, false);
+				TextView dummyTextView = (TextView) rootView
+						.findViewById(R.id.section_label);
+				dummyTextView.setText(Integer.toString(getArguments().getInt(
+						ARG_SECTION_NUMBER)));
+				return rootView;
+			}
+		
+	}
+	
+	public static class SUMapFragment extends fragment{
+		public static final String ARG_SECTION_NUMBER = "section_number";
+			public CampusMapFragment(){	
+			
+			}
+			
+			@Override
+			public View onCreateView(LayoutInflater inflater, ViewGroup container,
+					Bundle savedInstanceState) {
+				View rootView = inflater.inflate(R.layout.fragment_main_dummy,
+						container, false);
+				TextView dummyTextView = (TextView) rootView
+						.findViewById(R.id.section_label);
+				dummyTextView.setText(Integer.toString(getArguments().getInt(
+						ARG_SECTION_NUMBER)));
+				return rootView;
+				
+				
+			}
+		
+		
+	}
+	
+	public static class CourseMapFragment extends fragment{
+		public static final String ARG_SECTION_NUMBER = "section_number";
+			public CourseMapFragment(){				
+			}
+			
+			@Override
+			public View onCreateView(LayoutInflater inflater, ViewGroup container,
+					Bundle savedInstanceState) {
+				View rootView = inflater.inflate(R.layout.fragment_main_dummy,
+						container, false);
+				TextView dummyTextView = (TextView) rootView
+						.findViewById(R.id.section_label);
+				dummyTextView.setText(Integer.toString(getArguments().getInt(
+						ARG_SECTION_NUMBER)));
+				return rootView;
+			}
+	
+	}
+	
 	public static class DummySectionFragment extends Fragment {
 		/**
 		 * The fragment argument representing the section number for this
