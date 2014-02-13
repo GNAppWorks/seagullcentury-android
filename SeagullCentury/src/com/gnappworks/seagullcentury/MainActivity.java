@@ -118,6 +118,8 @@ public class MainActivity extends FragmentActivity implements
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
+	//Dummy section is one activity, must create a new activity for each tab.
+	//if position == 1 ... load correct frag
 			Fragment fragment = new DummySectionFragment();
 			Bundle args = new Bundle();
 			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
@@ -150,6 +152,9 @@ public class MainActivity extends FragmentActivity implements
 	 * A dummy fragment representing a section of the app, but that simply
 	 * displays dummy text.
 	 */
+//create  homeFrag, campusMap frag, courseMapFrag class. Each class will load a 
+//seperate layout file, have each frag Class in its own file	 
+	 
 	public static class DummySectionFragment extends Fragment {
 		/**
 		 * The fragment argument representing the section number for this
