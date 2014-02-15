@@ -68,7 +68,11 @@ public class MainActivity extends FragmentActivity implements
 			actionBar.addTab(actionBar.newTab()
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
+					//.setCurrentTab(1));
 		}
+		mViewPager.setCurrentItem(1);
+		
+		
 	}
 
 	@Override
@@ -113,18 +117,19 @@ public class MainActivity extends FragmentActivity implements
 			// below) with the page number as its lone argument.
 	
 			Fragment fragment = null;
+			Bundle args = new Bundle();
 			switch(position){
 			case 0:
 				fragment = new SUMapFragment();
+				args.putInt(SUMapFragment.ARG_SECTION_NUMBER, position - 1);
 			case 1:
-				fragment = new CourseMapFragment();
-			case 2:
 				fragment = new HomeFragment();
+				args.putInt(HomeFragment.ARG_SECTION_NUMBER, position );	
+			case 2:
+				fragment = new CourseMapFragment();
+				args.putInt(CourseMapFragment.ARG_SECTION_NUMBER, position + 1);
 			}
-			
-			Bundle args = new Bundle();
-			
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+
 			fragment.setArguments(args);
 			return fragment;
 		}
@@ -140,9 +145,9 @@ public class MainActivity extends FragmentActivity implements
 			Locale l = Locale.getDefault();
 			switch (position) {
 			case 0:
-				return getString(R.string.title_section1).toUpperCase(l);
-			case 1:
 				return getString(R.string.title_section2).toUpperCase(l);
+			case 1:
+				return getString(R.string.title_section1).toUpperCase(l);
 			case 2:
 				return getString(R.string.title_section3).toUpperCase(l);
 			}
@@ -151,75 +156,7 @@ public class MainActivity extends FragmentActivity implements
 	}
 }
 	
-	
-	
-	
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
-//create  homeFrag, campusMap frag, courseMapFrag class. Each class will load a 
-//seperate layout file, have each frag Class in its own file	
-	/*
-	public static class HomeFragment extends Fragment{
-		public static final String ARG_SECTION_NUMBER = "section_number";
-			public HomeFragment(){		
-			}
-			
-			@Override
-			public View onCreateView(LayoutInflater inflater, ViewGroup container,
-					Bundle savedInstanceState) {
-				View rootView = inflater.inflate(R.layout.fragment_main_dummy,
-						container, false);
-				TextView dummyTextView = (TextView) rootView
-						.findViewById(R.id.section_label);
-				dummyTextView.setText(Integer.toString(getArguments().getInt(
-						ARG_SECTION_NUMBER)));
-				return rootView;
-			}
-		
-	}
-	
-	public static class SUMapFragment extends Fragment{
-		public static final String ARG_SECTION_NUMBER = "section_number";
-			public SUMapFragment(){	
-			
-			}
-			
-			@Override
-			public View onCreateView(LayoutInflater inflater, ViewGroup container,
-					Bundle savedInstanceState) {
-				View rootView = inflater.inflate(R.layout.fragment_main_dummy,
-						container, false);
-				TextView dummyTextView = (TextView) rootView
-						.findViewById(R.id.section_label);
-				dummyTextView.setText(Integer.toString(getArguments().getInt(
-						ARG_SECTION_NUMBER)));
-				return rootView;
-				
-				
-			}
-		
-		
-	}
-	
-	public static class CourseMapFragment extends Fragment{
-		public static final String ARG_SECTION_NUMBER = "section_number";
-			public CourseMapFragment(){				
-			}
-			
-			@Override
-			public View onCreateView(LayoutInflater inflater, ViewGroup container,
-					Bundle savedInstanceState) {
-				View rootView = inflater.inflate(R.layout.fragment_main_dummy,
-						container, false);
-				TextView dummyTextView = (TextView) rootView
-						.findViewById(R.id.section_label);
-				dummyTextView.setText(Integer.toString(getArguments().getInt(
-						ARG_SECTION_NUMBER)));
-				return rootView;
-			}
-	*/
+
 
 	
 	
