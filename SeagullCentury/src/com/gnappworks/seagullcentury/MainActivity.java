@@ -9,15 +9,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -118,8 +111,7 @@ public class MainActivity extends FragmentActivity implements
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-	//Dummy section is one activity, must create a new activity for each tab.
-	//if position == 1 ... load correct frag
+	
 			Fragment fragment = null;
 			switch(position){
 			case 0:
@@ -157,14 +149,18 @@ public class MainActivity extends FragmentActivity implements
 			return null;
 		}
 	}
-
+}
+	
+	
+	
+	
 	/**
 	 * A dummy fragment representing a section of the app, but that simply
 	 * displays dummy text.
 	 */
 //create  homeFrag, campusMap frag, courseMapFrag class. Each class will load a 
 //seperate layout file, have each frag Class in its own file	
-	
+	/*
 	public static class HomeFragment extends Fragment{
 		public static final String ARG_SECTION_NUMBER = "section_number";
 			public HomeFragment(){		
@@ -223,30 +219,9 @@ public class MainActivity extends FragmentActivity implements
 						ARG_SECTION_NUMBER)));
 				return rootView;
 			}
+	*/
+
 	
-	}
 	
-	public static class DummySectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		public static final String ARG_SECTION_NUMBER = "section_number";
 
-		public DummySectionFragment() {
-		}
 
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main_dummy,
-					container, false);
-			TextView dummyTextView = (TextView) rootView
-					.findViewById(R.id.section_label);
-			dummyTextView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
-			return rootView;
-		}
-	}
-
-}
