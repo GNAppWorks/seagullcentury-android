@@ -3,8 +3,10 @@
 
     <string name="app_name">Seagull Century</string>
     <string name="action_settings">Settings</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_home_tab">Home</string>
+    <string name="title_su_map_tab">SU Map</string>
+    <string name="title_course_map_tab">Course Map</string>
+     <string name="vendor_button_label">Vendors</string>
+     <string name="su_website_button_label">SU Website</string>
 
 </resources>

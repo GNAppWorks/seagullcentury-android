@@ -70,6 +70,7 @@ public class MainActivity extends FragmentActivity implements
 					.setTabListener(this));
 					//.setCurrentTab(1));
 		}
+		//sets starting tab
 		mViewPager.setCurrentItem(1);
 		
 		
@@ -121,10 +122,10 @@ public class MainActivity extends FragmentActivity implements
 			switch(position){
 			case 0:
 				fragment = new SUMapFragment();
-				args.putInt(SUMapFragment.ARG_SECTION_NUMBER, position - 1);
+				args.putInt(SUMapFragment.ARG_SECTION_NUMBER, position + 1);
 			case 1:
 				fragment = new HomeFragment();
-				args.putInt(HomeFragment.ARG_SECTION_NUMBER, position );	
+				args.putInt(HomeFragment.ARG_SECTION_NUMBER, position + 1 );	
 			case 2:
 				fragment = new CourseMapFragment();
 				args.putInt(CourseMapFragment.ARG_SECTION_NUMBER, position + 1);
@@ -145,11 +146,11 @@ public class MainActivity extends FragmentActivity implements
 			Locale l = Locale.getDefault();
 			switch (position) {
 			case 0:
-				return getString(R.string.title_section2).toUpperCase(l);
+				return getString(R.string.title_su_map_tab).toUpperCase(l);
 			case 1:
-				return getString(R.string.title_section1).toUpperCase(l);
+				return getString(R.string.title_home_tab).toUpperCase(l);
 			case 2:
-				return getString(R.string.title_section3).toUpperCase(l);
+				return getString(R.string.title_course_map_tab).toUpperCase(l);
 			}
 			return null;
 		}
