@@ -1,8 +1,5 @@
 INDEX VERSION 1.126+/Users/katewason/ESRGC/seagullcentury-android/.metadata/.plugins/org.eclipse.jdt.core
-3543216299.index
-2558970347.index
 757867542.index
-1415693123.index
-3619619102.index
-3230596155.index
 1420048963.index
+2558970347.index
+3619619102.index

@@ -41,8 +41,7 @@ public class MainActivity extends FragmentActivity implements
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
-		mSectionsPagerAdapter = new SectionsPagerAdapter(
-				getSupportFragmentManager());
+		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -51,13 +50,12 @@ public class MainActivity extends FragmentActivity implements
 		// When swiping between different sections, select the corresponding
 		// tab. We can also use ActionBar.Tab#select() to do this if we have
 		// a reference to the Tab.
-		mViewPager
-				.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-					@Override
-					public void onPageSelected(int position) {
-						actionBar.setSelectedNavigationItem(position);
-					}
-				});
+		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+			@Override
+			public void onPageSelected(int position) {
+				actionBar.setSelectedNavigationItem(position);
+			}
+		});
 
 		// For each of the sections in the app, add a tab to the action bar.
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
@@ -66,9 +64,8 @@ public class MainActivity extends FragmentActivity implements
 			// the TabListener interface, as the callback (listener) for when
 			// this tab is selected.
 			actionBar.addTab(actionBar.newTab()
-					.setText(mSectionsPagerAdapter.getPageTitle(i))
-					.setTabListener(this));
-					//.setCurrentTab(1));
+				.setText(mSectionsPagerAdapter.getPageTitle(i))
+				.setTabListener(this));
 		}
 		//sets starting tab
 		mViewPager.setCurrentItem(1);
@@ -84,8 +81,7 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 	@Override
-	public void onTabSelected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 		// When the given tab is selected, switch to the corresponding page in
 		// the ViewPager.
 		mViewPager.setCurrentItem(tab.getPosition());
@@ -97,8 +93,7 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 	@Override
-	public void onTabReselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 	}
 
 	/**
@@ -122,13 +117,10 @@ public class MainActivity extends FragmentActivity implements
 			switch(position){
 			case 0:
 				fragment = new SUMapFragment();
-				args.putInt(SUMapFragment.ARG_SECTION_NUMBER, position + 1);
 			case 1:
 				fragment = new HomeFragment();
-				args.putInt(HomeFragment.ARG_SECTION_NUMBER, position + 1 );	
 			case 2:
 				fragment = new CourseMapFragment();
-				args.putInt(CourseMapFragment.ARG_SECTION_NUMBER, position + 1);
 			}
 
 			fragment.setArguments(args);
@@ -156,10 +148,3 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 }
-	
-
-
-	
-	
-
-
