@@ -32,14 +32,14 @@ public class HomeFragment extends Fragment {
 	            myWebView.setWebViewClient(new WebViewClient());
 	            myWebView.loadUrl("http://www.seagullcentury.org");
 	            
+	            
 		    }
 		});
 		
-		
+		//test
 		
 		return rootView;
 	}
-	
 	
 	
 	
