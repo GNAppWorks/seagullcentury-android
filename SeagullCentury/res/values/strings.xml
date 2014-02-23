@@ -7,6 +7,6 @@
     <string name="title_su_map_tab">SU Map</string>
     <string name="title_course_map_tab">Course Map</string>
      <string name="vendor_button_label">Vendors</string>
-     <string name="su_website_button_label">SU Website</string>
+     <string name="sgc_website_button_label">SGC Website</string>
 
 </resources>
