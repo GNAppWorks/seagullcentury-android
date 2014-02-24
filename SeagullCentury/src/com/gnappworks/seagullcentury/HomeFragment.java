@@ -1,5 +1,6 @@
 package com.gnappworks.seagullcentury;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,9 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 
 
 public class HomeFragment extends Fragment {
+
 	public HomeFragment() {
 	}
 
@@ -20,6 +24,7 @@ public class HomeFragment extends Fragment {
 	
 		Button sgc_website_button = (Button) rootView.findViewById(R.id.sgc_website_button);
 		Button vendor_button = (Button) rootView.findViewById(R.id.vendor_button);
+	
 		
 		
 		
@@ -47,8 +52,7 @@ public class HomeFragment extends Fragment {
 	
 	
 	
-	
-	
+
 	
 	
 	
