@@ -2,24 +2,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@android:color/black"
     android:orientation="vertical"
     tools:context=".MainActivity$HomeFragment" >
-    
-    <WebView 
-    android:id="@+id/su_website"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:visibility="gone" >
-    
-    
-</WebView>
-    
+
+    <ImageSwitcher
+        android:id="@+id/imageSwitcher1"
+        android:layout_width="match_parent"
+        android:layout_height="75dp" 
+         android:layout_gravity="center_horizontal">
+        
+    </ImageSwitcher>
+
     <Button
-        android:id="@+id/home_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/sgc_website_button"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="@string/title_home_tab" />
-  
-  
+        android:layout_gravity="center_horizontal"
+        android:text="@string/sgc_website_button_label" />
+
+    <Button
+        android:id="@+id/vendor_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/vendor_button_label" />
 
 </LinearLayout>

@@ -1,41 +1,50 @@
 package com.gnappworks.seagullcentury;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 
 
 public class HomeFragment extends Fragment {
+
 	public HomeFragment() {
 	}
 
 	@Override
 	public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.home_fragment, container, false);
-
+	
+		Button sgc_website_button = (Button) rootView.findViewById(R.id.sgc_website_button);
+		Button vendor_button = (Button) rootView.findViewById(R.id.vendor_button);
 	
 		
-		Button home_button = (Button) rootView.findViewById(R.id.home_button);
-		home_button.setOnClickListener (new View.OnClickListener() {
+		
+		
+		sgc_website_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	
-		    	View webPanel = getView().findViewById(R.id.su_website);
-		    	webPanel.setVisibility(View.VISIBLE);
+		    	Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.seagullcentury.org"));
+		    	startActivity(i); 
 		    	
-		    	WebView myWebView = (WebView)webPanel;
-	            myWebView.setWebViewClient(new WebViewClient());
-	            myWebView.loadUrl("http://www.seagullcentury.org");
-	            
 		    }
 		});
 		
-		
+		vendor_button.setOnClickListener (new View.OnClickListener() {
+		    public void onClick(View v) {
+		    	
+		    	Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://orgs.salisbury.edu/math/"));
+		    	startActivity(i); 
+		    	
+		    }
+		});
 		
 		return rootView;
 	}
@@ -43,8 +52,7 @@ public class HomeFragment extends Fragment {
 	
 	
 	
-	
-	
+
 	
 	
 	
