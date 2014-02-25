@@ -22,28 +22,17 @@ import android.view.ViewGroup;
 
 
 
-public class CourseMapFragment extends Fragment {
+public final class CourseMapFragment extends Fragment {
 	static final LatLng SALISBURYUNIV = new LatLng(38.3456,-75.6058);
 	private GoogleMap map;
-	private View rootView;
 	
 	public CourseMapFragment() {
 	}
 
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, 
+	        Bundle savedInstanceState) {
 	    // inflate and return the layout
-		if(rootView == null){
-			rootView = inflater.inflate(R.layout.course_map_fragment, container, false);
-		}
-		else{
-			//If the view has already been created, we remove it from the parent so that we can add it again
-			//This covers the case when the tab is destroyed (i.e. when we switch from tab 3 to tab 1 and then
-			//back to tab 3 again) so that it doesn't try to add a view that's already there, thus creating a
-			//duplicate id and and error, and this implementation also preserves the map state (screen location,
-			//attached objects, etc) by saving the state in a persistant rootView and returning it if it's not null
-			ViewGroup parent = (ViewGroup) rootView.getParent();
-            parent.removeView(rootView);
-		}
+		View rootView = inflater.inflate(R.layout.course_map_fragment, container, false);
 		
 		attemptCreate();
 		
