@@ -1,6 +1,7 @@
 package com.gnappworks.seagullcentury;
 import java.util.Locale;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -21,18 +22,19 @@ import android.view.ViewGroup;
 
 
 
-public class CourseMapFragment extends android.support.v4.app.FragmentActivity {
+public class CourseMapFragment extends Fragment {
 	static final LatLng SALISBURYUNIV = new LatLng(38.3456,-75.6058);
 	private GoogleMap map;
 	
 	public CourseMapFragment() {
-		attemptCreate();
 	}
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, 
 	        Bundle savedInstanceState) {
 	    // inflate and return the layout
 		View rootView = inflater.inflate(R.layout.course_map_fragment, container, false);
+		
+		attemptCreate();
 		
 	    return rootView;
 	}
@@ -41,7 +43,7 @@ public class CourseMapFragment extends android.support.v4.app.FragmentActivity {
 	private void attemptCreate() {
 		if (map == null) {
 			// attempt to get map from SupportMapFragment
-			map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.courseMapFragment)).getMap();
+			map = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.courseMapFragment)).getMap();
 			if (map != null)
 				// if we got the map then it will set up a next
 				setUp();
