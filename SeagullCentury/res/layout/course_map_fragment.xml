@@ -4,10 +4,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity$CourseMapFragment" >
 
-    <Button
+    <!--  <Button
         android:id="@+id/course_map_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_course_map_tab" />
+	-->
+	
+	<WebView
+	    android:id="@+id/webview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"/>
 
 </RelativeLayout>
