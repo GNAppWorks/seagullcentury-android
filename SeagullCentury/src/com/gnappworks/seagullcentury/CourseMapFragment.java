@@ -5,8 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.content.res.AssetManager;
 
 public class CourseMapFragment extends Fragment 
 {
@@ -17,6 +17,8 @@ public class CourseMapFragment extends Fragment
 	{
 		View rootView = (View) inflater.inflate(R.layout.course_map_fragment, container, false);
 		WebView webView= (WebView) rootView.findViewById(R.id.webview);
+		webView.getSettings().setJavaScriptEnabled(true);
+	    webView.setWebChromeClient(new WebChromeClient());
 		webView.loadUrl("file:///android_asset/courseMap.html");
 		return rootView;
 	}
