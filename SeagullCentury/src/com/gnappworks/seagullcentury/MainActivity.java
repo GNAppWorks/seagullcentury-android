@@ -1,9 +1,12 @@
 package com.gnappworks.seagullcentury;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.Locale;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -32,7 +35,7 @@ public class MainActivity extends FragmentActivity implements
 	ViewPager mViewPager;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
