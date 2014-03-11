@@ -21,7 +21,6 @@ public class CourseMapFragment extends Fragment
 		webView= (WebView) rootView.findViewById(R.id.webview);
 		webView.getSettings().setJavaScriptEnabled(true);
 	    webView.setWebChromeClient(new WebChromeClient());
-	    webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 		webView.loadUrl("file:///android_asset/courseMap.html");
 		return rootView;
 	}
