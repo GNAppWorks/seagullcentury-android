@@ -2,11 +2,6 @@ package com.gnappworks.seagullcentury;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 public class SGCwebView extends Activity {
 	
