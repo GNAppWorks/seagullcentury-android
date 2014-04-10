@@ -6,7 +6,10 @@
     <string name="title_home_tab">Home</string>
     <string name="title_su_map_tab">SU Map</string>
     <string name="title_course_map_tab">Course Map</string>
-     <string name="vendor_button_label">Vendors</string>
-     <string name="sgc_website_button_label">SGC Website</string>
-
+    <string name="vendor_button_label">Vendors</string>
+    <string name="sgc_website_button_label">SGC Website</string>
+	<string name="route1_button_label">Route 1</string>
+    <string name="route2_button_label">Route 2</string>
+    <string name="route3_button_label">Route 3</string>	
+    <string name="category_group">route 3</string>	
 </resources>

@@ -5,8 +5,12 @@ import java.io.FileOutputStream;
 import java.util.Locale;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,6 +19,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -36,6 +41,8 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
+		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -74,9 +81,34 @@ public class MainActivity extends FragmentActivity implements
 		//sets starting tab
 		mViewPager.setCurrentItem(1);
 		
-		
+		if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+			Toast.makeText(this, "GPS is Enabled in your devide", Toast.LENGTH_SHORT).show();
+		}
+		else{
+			showGPSDisabledAlertToUser();
+		}
 	}
 
+	private void showGPSDisabledAlertToUser(){
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage("GPS is disabled in your device. Would you like to enable it?")
+		.setCancelable(false)
+		.setPositiveButton("Goto Settings Page To Enable GPS", new DialogInterface.OnClickListener(){
+		public void onClick(DialogInterface dialog, int id){
+			Intent callGPSSettingIntent = new Intent(
+			android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+			startActivity(callGPSSettingIntent);
+			}
+		});
+		alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+			public void onClick(DialogInterface dialog, int id){
+				dialog.cancel();
+			}
+		});
+		AlertDialog alert = alertDialogBuilder.create();
+		alert.show();
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
