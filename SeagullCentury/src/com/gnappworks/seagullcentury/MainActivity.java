@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -19,6 +20,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements
@@ -109,6 +111,40 @@ public class MainActivity extends FragmentActivity implements
 		alert.show();
 	}
 	
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case R.id.vendor_settings:
+	        case R.id.speed_settings:
+	        case R.id.waypoints_settings:
+	            if (item.isChecked()) item.setChecked(false);
+	            else item.setChecked(true);
+	            return true;	    
+	        case R.id.sagWagon:
+	            //call sag wagon phone number
+	        	Intent callIntent = new Intent(Intent.ACTION_CALL);
+	        	callIntent.setData(Uri.parse("tel:4439073258"));
+	        	startActivity(callIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	/*
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	    case R.id.sagWagon:
+            //call sag wagon phone number
+        	Intent callIntent = new Intent(Intent.ACTION_CALL);
+        	callIntent.setData(Uri.parse("tel:4439073258"));
+        	startActivity(callIntent);
+            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	*/
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

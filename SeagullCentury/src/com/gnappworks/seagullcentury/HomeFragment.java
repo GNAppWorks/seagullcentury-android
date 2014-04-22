@@ -19,25 +19,28 @@ public class HomeFragment extends Fragment {
 	public static int routeNumber = 0;
 	RadioButton route1_button, route2_button, route3_button;
 	
-	public HomeFragment() {
-	}
+	public HomeFragment() {}
 
 	@Override
 	public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 	
+		Button route1_button = (Button) rootView.findViewById(R.id.route1_button);
+		Button route2_button = (Button) rootView.findViewById(R.id.route2_button);
+		Button route3_button = (Button) rootView.findViewById(R.id.route3_button);
 		Button sgc_website_button = (Button) rootView.findViewById(R.id.sgc_website_button);
 		Button vendor_button = (Button) rootView.findViewById(R.id.vendor_button);
-		route1_button = (RadioButton) rootView.findViewById(R.id.route1_button);
-		route2_button = (RadioButton) rootView.findViewById(R.id.route2_button);
-		route3_button = (RadioButton) rootView.findViewById(R.id.route3_button);
+		
+		//route1_button = (RadioButton) rootView.findViewById(R.id.route1_button);
+		//route2_button = (RadioButton) rootView.findViewById(R.id.route2_button);
+		//route3_button = (RadioButton) rootView.findViewById(R.id.route3_button);
 		
 		sgc_website_button.setTextColor(Color.parseColor("#000000")); 
 		vendor_button.setTextColor(Color.parseColor("#000000")); 
 		//#FFFF00 yellow
-		route1_button.setTextColor(Color.parseColor("#FFFF00")); 
-		route2_button.setTextColor(Color.parseColor("#FFFF00")); 
-		route3_button.setTextColor(Color.parseColor("#FFFF00")); 
+		route1_button.setTextColor(Color.parseColor("#000000")); 
+		route2_button.setTextColor(Color.parseColor("#000000")); 
+		route3_button.setTextColor(Color.parseColor("#000000")); 
 		
 		sgc_website_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
