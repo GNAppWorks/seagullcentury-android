@@ -71,6 +71,8 @@ public class HomeFragment extends Fragment {
 		route1_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	HomeFragment.routeNumber = 0;
+		    	
+		    	refreshWebview();
 		    	getActivity().getActionBar().setSelectedNavigationItem(1);
 		    }
 		});
@@ -78,6 +80,8 @@ public class HomeFragment extends Fragment {
 		route2_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	HomeFragment.routeNumber = 1;
+		    	
+		    	refreshWebview();
 		    	getActivity().getActionBar().setSelectedNavigationItem(1);
 		    }
 		});
@@ -85,10 +89,17 @@ public class HomeFragment extends Fragment {
 		route3_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	HomeFragment.routeNumber = 2;
+		    	
+		    	refreshWebview();
 		    	getActivity().getActionBar().setSelectedNavigationItem(1);
 		    }
 		});
-		
+			
 		return rootView;
+	}
+	
+	public void refreshWebview(){
+    	CourseMapFragment fragment = new CourseMapFragment();
+    	getFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
 	}
 }

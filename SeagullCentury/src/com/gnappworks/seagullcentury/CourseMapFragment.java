@@ -2,6 +2,7 @@ package com.gnappworks.seagullcentury;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,11 +40,9 @@ public class CourseMapFragment extends Fragment
 	
 	public void onResume() 
 	{
-	    super.onResume();
-	    String url;
-		url = "http://oxford.esrgc.org/maps/seagullcentury/index.html?route="+HomeFragment.routeNumber;
-	    webView.loadUrl(url);
+		super.onResume();
 	}
+	
 	public void onPause() 
 	{
 	     super.onPause();

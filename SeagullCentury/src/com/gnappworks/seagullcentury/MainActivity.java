@@ -156,7 +156,8 @@ public class MainActivity extends FragmentActivity implements
 	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 		// When the given tab is selected, switch to the corresponding page in
 		// the ViewPager.
-		mViewPager.setCurrentItem(tab.getPosition());
+		//mViewPager.setCurrentItem(tab.getPosition());
+		mViewPager.setCurrentItem(tab.getPosition());		
 	}
 
 	@Override
@@ -166,6 +167,7 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+		
 	}
 
 	/**
@@ -186,7 +188,6 @@ public class MainActivity extends FragmentActivity implements
 	
 			Fragment fragment = null;
 			Bundle args = new Bundle();
-			Log.d("debug", position + " is tab.getposition()");
 			switch(position){
 			case 0:
 				fragment = new HomeFragment();
