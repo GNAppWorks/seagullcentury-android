@@ -7,6 +7,8 @@
     <string name="title_su_map_tab">SU Map</string>
     <string name="title_course_map_tab">Course Map</string>
     <string name="vendor_button_label">Vendors</string>
+    <string name="twitter_button_label">Twitter</string>
+    <string name="facebook_button_label">Facebook</string>
     <string name="sgc_website_button_label">SGC Website</string>    
     <string name="route1_button_label">100 Mile Route</string>    
     <string name="route2_button_label">50 Mile Route</string>

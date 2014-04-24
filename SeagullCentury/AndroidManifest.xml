@@ -28,7 +28,6 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity 
-            android:uiOptions="splitActionBarWhenNarrow"
             android:name="com.gnappworks.seagullcentury.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
