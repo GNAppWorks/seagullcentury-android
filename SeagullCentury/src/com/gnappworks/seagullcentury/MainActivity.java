@@ -52,7 +52,7 @@ public class MainActivity extends FragmentActivity implements
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-		// Create the adapter that will return a fragment for each of the three
+		// Create the adapter that will return a fragment for each of the two
 		// primary sections of the app.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -81,7 +81,7 @@ public class MainActivity extends FragmentActivity implements
 				.setTabListener(this));
 		}
 		//sets starting tab
-		mViewPager.setCurrentItem(1);
+		mViewPager.setCurrentItem(0);
 		
 		if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
 			Toast.makeText(this, "GPS is Enabled in your devide", Toast.LENGTH_SHORT).show();
@@ -186,14 +186,12 @@ public class MainActivity extends FragmentActivity implements
 	
 			Fragment fragment = null;
 			Bundle args = new Bundle();
+			Log.d("debug", position + " is tab.getposition()");
 			switch(position){
 			case 0:
-				fragment = new SUMapFragment();
-				break;
-			case 1:
 				fragment = new HomeFragment();
 				break;
-			case 2:
+			case 1:
 				fragment = new CourseMapFragment();
 				break;
 			default:
@@ -206,8 +204,8 @@ public class MainActivity extends FragmentActivity implements
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 3;
+			// Show 2 total pages.
+			return 2;
 		}
 
 		@Override
@@ -215,10 +213,8 @@ public class MainActivity extends FragmentActivity implements
 			Locale l = Locale.getDefault();
 			switch (position) {
 			case 0:
-				return getString(R.string.title_su_map_tab).toUpperCase(l);
-			case 1:
 				return getString(R.string.title_home_tab).toUpperCase(l);
-			case 2:
+			case 1:
 				return getString(R.string.title_course_map_tab).toUpperCase(l);
 			}
 			return null;

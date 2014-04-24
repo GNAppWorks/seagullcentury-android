@@ -71,21 +71,21 @@ public class HomeFragment extends Fragment {
 		route1_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	HomeFragment.routeNumber = 0;
-		    	getActivity().getActionBar().setSelectedNavigationItem(2);
+		    	getActivity().getActionBar().setSelectedNavigationItem(1);
 		    }
 		});
 		
 		route2_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	HomeFragment.routeNumber = 1;
-		    	getActivity().getActionBar().setSelectedNavigationItem(2);
+		    	getActivity().getActionBar().setSelectedNavigationItem(1);
 		    }
 		});
 		
 		route3_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	HomeFragment.routeNumber = 2;
-		    	getActivity().getActionBar().setSelectedNavigationItem(2);
+		    	getActivity().getActionBar().setSelectedNavigationItem(1);
 		    }
 		});
 		
