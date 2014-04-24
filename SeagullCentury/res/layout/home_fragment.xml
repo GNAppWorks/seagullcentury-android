@@ -47,12 +47,12 @@
         android:text="@string/sgc_website_button_label" />
 
     <Button
-        android:id="@+id/vendor_button"
+        android:id="@+id/sponser_button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/rec"
-        android:text="@string/vendor_button_label" />
+        android:text="@string/sponser_button_label" />
     
     <Button
         android:id="@+id/twitter_button"

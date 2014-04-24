@@ -6,6 +6,7 @@
     <string name="title_home_tab">Home</string>
     <string name="title_su_map_tab">SU Map</string>
     <string name="title_course_map_tab">Course Map</string>
+    <string name="sponser_button_label">Sponsors</string>
     <string name="vendor_button_label">Vendors</string>
     <string name="twitter_button_label">Twitter</string>
     <string name="facebook_button_label">Facebook</string>

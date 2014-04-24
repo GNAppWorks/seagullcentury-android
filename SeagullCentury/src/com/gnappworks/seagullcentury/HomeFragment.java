@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
 		Button route2_button = (Button) rootView.findViewById(R.id.route2_button);
 		Button route3_button = (Button) rootView.findViewById(R.id.route3_button);
 		Button sgc_website_button = (Button) rootView.findViewById(R.id.sgc_website_button);
-		Button vendor_button = (Button) rootView.findViewById(R.id.vendor_button);
+		Button sponsor_button = (Button) rootView.findViewById(R.id.sponser_button);
 		Button twitter_button = (Button) rootView.findViewById(R.id.twitter_button);
 		Button facebook_button = (Button) rootView.findViewById(R.id.facebook_button);
 
@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 		//route3_button = (RadioButton) rootView.findViewById(R.id.route3_button);
 		
 		sgc_website_button.setTextColor(Color.parseColor("#000000")); 
-		vendor_button.setTextColor(Color.parseColor("#000000")); 
+		sponsor_button.setTextColor(Color.parseColor("#000000")); 
 		twitter_button.setTextColor(Color.parseColor("#000000")); 
 		facebook_button.setTextColor(Color.parseColor("#000000")); 
 		//#FFFF00 yellow
@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
 		    }
 		});
 		
-		vendor_button.setOnClickListener (new View.OnClickListener() {
+		sponsor_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {
 		    	
 		    	Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://orgs.salisbury.edu/math/"));
