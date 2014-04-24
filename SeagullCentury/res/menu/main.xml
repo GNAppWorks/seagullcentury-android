@@ -3,13 +3,13 @@
 	<group android:checkableBehavior="all">	        
 		<item 
 		    android:id="@+id/vendor_settings"
-            android:title="@string/vendor_button_label" />
+            android:title="@string/vendor_button_label" android:checked="true"/>
         <item 
             android:id="@+id/speed_settings"
-            android:title="@string/speed_settings_label" />
+            android:title="@string/speed_settings_label" android:checked="true"/>
         <item 
             android:id="@+id/waypoints_settings"
-            android:title="@string/waypoints_settings_label" />
+            android:title="@string/waypoints_settings_label" android:checked="true"/>
     </group>
 	
 <!--      <item

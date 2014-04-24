@@ -40,6 +40,10 @@ public class MainActivity extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	public static int vendors = 1;
+	public static int speed = 1;
+	public static int waypoints = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
@@ -115,10 +119,46 @@ public class MainActivity extends FragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
 	        case R.id.vendor_settings:
+	        	if (item.isChecked()){
+	            	item.setChecked(false);
+	            	vendors=0;
+	            	CourseMapFragment fragment = new CourseMapFragment();
+	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+	            }
+	            else{
+	            	item.setChecked(true);
+	            	vendors=1;
+	            	CourseMapFragment fragment = new CourseMapFragment();
+	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+	            }
+	            return true;	
 	        case R.id.speed_settings:
+	        	if (item.isChecked()){
+	            	item.setChecked(false);
+	            	speed=0;
+	            	CourseMapFragment fragment = new CourseMapFragment();
+	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+	            }
+	            else{
+	            	item.setChecked(true);
+	            	speed=1;
+	            	CourseMapFragment fragment = new CourseMapFragment();
+	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+	            }
+	            return true;	
 	        case R.id.waypoints_settings:
-	            if (item.isChecked()) item.setChecked(false);
-	            else item.setChecked(true);
+	            if (item.isChecked()){
+	            	item.setChecked(false);
+	            	waypoints=0;
+	            	CourseMapFragment fragment = new CourseMapFragment();
+	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+	            }
+	            else{
+	            	item.setChecked(true);
+	            	waypoints=1;
+	            	CourseMapFragment fragment = new CourseMapFragment();
+	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+	            }
 	            return true;	    
 	        case R.id.sagWagon:
 	            //call sag wagon phone number
@@ -130,6 +170,7 @@ public class MainActivity extends FragmentActivity implements
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
+
 	/*
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle presses on the action bar items
