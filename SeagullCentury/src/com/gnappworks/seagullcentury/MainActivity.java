@@ -162,9 +162,17 @@ public class MainActivity extends FragmentActivity implements
 	            return true;	    
 	        case R.id.sagWagon:
 	            //call sag wagon phone number
-	        	Intent callIntent = new Intent(Intent.ACTION_CALL);
-	        	callIntent.setData(Uri.parse("tel:4439073258"));
-	        	startActivity(callIntent);
+	        	new AlertDialog.Builder(this)
+	        	.setTitle("Call SAG Wagon?")
+	        	.setMessage("Are you sure you want to call the SAG Wagon? They will do things such as pick you up if you've decided to call it quits or help you out if your tire goes flat. If this is an emergency, please dial 911.")
+	        	.setIcon(android.R.drawable.ic_dialog_alert)
+	        	.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	        	    public void onClick(DialogInterface dialog, int whichButton) {
+	        	    	Intent callIntent = new Intent(Intent.ACTION_CALL);
+	    	        	callIntent.setData(Uri.parse("tel:4439073258"));
+	    	        	startActivity(callIntent);
+	        	    }})
+	        	 .setNegativeButton(android.R.string.no, null).show();
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
