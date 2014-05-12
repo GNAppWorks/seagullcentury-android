@@ -3,28 +3,31 @@
 	<group android:checkableBehavior="all">	        
 		<item 
 		    android:id="@+id/vendor_settings"
-            android:title="@string/vendor_button_label" android:checked="true"/>
+            android:title="@string/vendor_button_label"
+            android:checked="true"/>
         <item 
             android:id="@+id/speed_settings"
-            android:title="@string/speed_settings_label" android:checked="true"/>
+            android:title="@string/speed_settings_label"
+            android:checked="true"/>
         <item 
             android:id="@+id/waypoints_settings"
-            android:title="@string/waypoints_settings_label" android:checked="true"/>
+            android:title="@string/waypoints_settings_label"
+            android:checked="true"/>
     </group>
 	
-<!--      <item
+    <item
         android:id="@+id/facebook"
         android:icon="@drawable/facebooklogo"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom"
+        android:showAsAction="always"
         android:title="@string/facebook_label"/>
     
      <item
         android:id="@+id/twitter"
         android:icon="@drawable/twitterlogo"
         android:orderInCategory="100"
-        android:showAsAction="ifRoom"
-        android:title="@string/twitter_label"/>-->
+        android:showAsAction="always"
+        android:title="@string/twitter_label"/>
      
      <item
         android:id="@+id/sagWagon"

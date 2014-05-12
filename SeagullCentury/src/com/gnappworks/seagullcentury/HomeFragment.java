@@ -1,7 +1,16 @@
 package com.gnappworks.seagullcentury;
 
+import java.util.List;
+
 import android.app.TabActivity;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,8 +30,7 @@ import android.widget.TabHost;
 public class HomeFragment extends Fragment {
 
 	public static int routeNumber = 0;
-	RadioButton route1_button, route2_button, route3_button;
-	
+		
 	public HomeFragment() {}
 
 	@Override
@@ -34,18 +42,12 @@ public class HomeFragment extends Fragment {
 		Button route3_button = (Button) rootView.findViewById(R.id.route3_button);
 		Button sgc_website_button = (Button) rootView.findViewById(R.id.sgc_website_button);
 		Button sponsor_button = (Button) rootView.findViewById(R.id.sponser_button);
-		Button twitter_button = (Button) rootView.findViewById(R.id.twitter_button);
 		Button facebook_button = (Button) rootView.findViewById(R.id.facebook_button);
 
-		//route1_button = (RadioButton) rootView.findViewById(R.id.route1_button);
-		//route2_button = (RadioButton) rootView.findViewById(R.id.route2_button);
-		//route3_button = (RadioButton) rootView.findViewById(R.id.route3_button);
-		
 		sgc_website_button.setTextColor(Color.parseColor("#000000")); 
 		sponsor_button.setTextColor(Color.parseColor("#000000")); 
-		twitter_button.setTextColor(Color.parseColor("#000000")); 
 		facebook_button.setTextColor(Color.parseColor("#000000")); 
-		//#FFFF00 yellow
+		
 		route1_button.setTextColor(Color.parseColor("#000000")); 
 		route2_button.setTextColor(Color.parseColor("#000000")); 
 		route3_button.setTextColor(Color.parseColor("#000000")); 
@@ -97,7 +99,7 @@ public class HomeFragment extends Fragment {
 		    	getActivity().getActionBar().setSelectedNavigationItem(1);
 		    }
 		});
-			
+		
 		return rootView;
 	}
 	

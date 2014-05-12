@@ -21,10 +21,11 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements
-		ActionBar.TabListener {
+ActionBar.TabListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -40,7 +41,7 @@ public class MainActivity extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	
+
 	public static int vendors = 1;
 	public static int speed = 1;
 	public static int waypoints = 1;
@@ -48,7 +49,7 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
 		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-		
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -63,7 +64,7 @@ public class MainActivity extends FragmentActivity implements
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
-
+		//Remove title bar
 		// When swiping between different sections, select the corresponding
 		// tab. We can also use ActionBar.Tab#select() to do this if we have
 		// a reference to the Tab.
@@ -81,12 +82,12 @@ public class MainActivity extends FragmentActivity implements
 			// the TabListener interface, as the callback (listener) for when
 			// this tab is selected.
 			actionBar.addTab(actionBar.newTab()
-				.setText(mSectionsPagerAdapter.getPageTitle(i))
-				.setTabListener(this));
+					.setText(mSectionsPagerAdapter.getPageTitle(i))
+					.setTabListener(this));
 		}
 		//sets starting tab
 		mViewPager.setCurrentItem(0);
-		
+
 		if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
 			Toast.makeText(this, "GPS is Enabled in your devide", Toast.LENGTH_SHORT).show();
 		}
@@ -100,10 +101,10 @@ public class MainActivity extends FragmentActivity implements
 		alertDialogBuilder.setMessage("GPS is disabled in your device. Would you like to enable it?")
 		.setCancelable(false)
 		.setPositiveButton("Goto Settings Page To Enable GPS", new DialogInterface.OnClickListener(){
-		public void onClick(DialogInterface dialog, int id){
-			Intent callGPSSettingIntent = new Intent(
-			android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-			startActivity(callGPSSettingIntent);
+			public void onClick(DialogInterface dialog, int id){
+				Intent callGPSSettingIntent = new Intent(
+						android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+				startActivity(callGPSSettingIntent);
 			}
 		});
 		alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
@@ -114,69 +115,85 @@ public class MainActivity extends FragmentActivity implements
 		AlertDialog alert = alertDialogBuilder.create();
 		alert.show();
 	}
-	
-	
+
+
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    switch (item.getItemId()) {
-	        case R.id.vendor_settings:
-	        	if (item.isChecked()){
-	            	item.setChecked(false);
-	            	vendors=0;
-	            	CourseMapFragment fragment = new CourseMapFragment();
-	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
-	            }
-	            else{
-	            	item.setChecked(true);
-	            	vendors=1;
-	            	CourseMapFragment fragment = new CourseMapFragment();
-	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
-	            }
-	            return true;	
-	        case R.id.speed_settings:
-	        	if (item.isChecked()){
-	            	item.setChecked(false);
-	            	speed=0;
-	            	CourseMapFragment fragment = new CourseMapFragment();
-	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
-	            }
-	            else{
-	            	item.setChecked(true);
-	            	speed=1;
-	            	CourseMapFragment fragment = new CourseMapFragment();
-	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
-	            }
-	            return true;	
-	        case R.id.waypoints_settings:
-	            if (item.isChecked()){
-	            	item.setChecked(false);
-	            	waypoints=0;
-	            	CourseMapFragment fragment = new CourseMapFragment();
-	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
-	            }
-	            else{
-	            	item.setChecked(true);
-	            	waypoints=1;
-	            	CourseMapFragment fragment = new CourseMapFragment();
-	            	getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
-	            }
-	            return true;	    
-	        case R.id.sagWagon:
-	            //call sag wagon phone number
-	        	new AlertDialog.Builder(this)
-	        	.setTitle("Call SAG Wagon?")
-	        	.setMessage("Are you sure you want to call the SAG Wagon? They will do things such as pick you up if you've decided to call it quits or help you out if your tire goes flat. If this is an emergency, please dial 911.")
-	        	.setIcon(android.R.drawable.ic_dialog_alert)
-	        	.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-	        	    public void onClick(DialogInterface dialog, int whichButton) {
-	        	    	Intent callIntent = new Intent(Intent.ACTION_CALL);
-	    	        	callIntent.setData(Uri.parse("tel:4439073258"));
-	    	        	startActivity(callIntent);
-	        	    }})
-	        	 .setNegativeButton(android.R.string.no, null).show();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+		switch (item.getItemId()) {
+		case R.id.vendor_settings:
+			if (item.isChecked()){
+				item.setChecked(false);
+				vendors=0;
+				CourseMapFragment fragment = new CourseMapFragment();
+				getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+			}
+			else{
+				item.setChecked(true);
+				vendors=1;
+				CourseMapFragment fragment = new CourseMapFragment();
+				getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+			}
+			return true;	
+		case R.id.speed_settings:
+			if (item.isChecked()){
+				item.setChecked(false);
+				speed=0;
+				CourseMapFragment fragment = new CourseMapFragment();
+				getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+			}
+			else{
+				item.setChecked(true);
+				speed=1;
+				CourseMapFragment fragment = new CourseMapFragment();
+				getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+			}
+			return true;	
+		case R.id.waypoints_settings:
+			if (item.isChecked()){
+				item.setChecked(false);
+				waypoints=0;
+				CourseMapFragment fragment = new CourseMapFragment();
+				getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+			}
+			else{
+				item.setChecked(true);
+				waypoints=1;
+				CourseMapFragment fragment = new CourseMapFragment();
+				getSupportFragmentManager().beginTransaction().replace(R.id.course_map_fragment, fragment).commit();
+			}
+			return true;	    
+		case R.id.sagWagon:
+			//call sag wagon phone number
+			new AlertDialog.Builder(this)
+			.setTitle("Call SAG Wagon?")
+			.setMessage("Are you sure you want to call the SAG Wagon? They will do things such as pick you up if you've decided to call it quits or help you out if your tire goes flat. If this is an emergency, please dial 911.")
+			.setIcon(android.R.drawable.ic_dialog_alert)
+			.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+					Intent callIntent = new Intent(Intent.ACTION_CALL);
+					callIntent.setData(Uri.parse("tel:4439073258"));
+					startActivity(callIntent);
+				}})
+				.setNegativeButton(android.R.string.no, null).show();
+			return true;
+		case R.id.facebook:
+
+			return true;
+		case R.id.twitter:
+			Intent intent = null;
+			try {
+			    // get the Twitter app if possible
+			    this.getPackageManager().getPackageInfo("com.twitter.android", 0);
+			    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?user_id=USERID"));
+			    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			} catch (Exception e) {
+			    // no Twitter app, revert to browser
+			    intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/USERID_OR_PROFILENAME"));
+			}
+			this.startActivity(intent);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	/*
@@ -193,7 +210,7 @@ public class MainActivity extends FragmentActivity implements
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
-	*/
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -216,7 +233,7 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-		
+
 	}
 
 	/**
@@ -234,7 +251,7 @@ public class MainActivity extends FragmentActivity implements
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-	
+
 			Fragment fragment = null;
 			Bundle args = new Bundle();
 			switch(position){
@@ -270,8 +287,8 @@ public class MainActivity extends FragmentActivity implements
 			return null;
 		}
 	}
-	
-	
-	
-	
+
+
+
+
 }

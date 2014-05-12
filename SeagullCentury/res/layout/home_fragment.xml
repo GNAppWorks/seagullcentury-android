@@ -54,13 +54,6 @@
         android:background="@drawable/rec"
         android:text="@string/sponser_button_label" />
     
-    <Button
-        android:id="@+id/twitter_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rec"
-        android:text="@string/twitter_button_label" />
     
     <Button
         android:id="@+id/facebook_button"
@@ -69,39 +62,5 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/rec"
         android:text="@string/facebook_button_label" />
-
-    <!--  <RadioGroup
-        android:id="@+id/category_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.03"
-        android:orientation="horizontal" 
-        android:gravity="center">
-	
-        <RadioButton
-            android:id="@+id/route1_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/route1_button_label"
-            android:textColor="#ff0000" />
-
-        <RadioButton
-            android:id="@+id/route2_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/route2_button_label"
-            android:textColor="#ff0000" />
-
-        <RadioButton
-            android:id="@+id/route3_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/route3_button_label"
-            android:textColor="#ff0000" />
-
-    </RadioGroup> -->
 
 </LinearLayout>
