@@ -41,12 +41,8 @@ public class HomeFragment extends Fragment {
 		Button route2_button = (Button) rootView.findViewById(R.id.route2_button);
 		Button route3_button = (Button) rootView.findViewById(R.id.route3_button);
 		Button sgc_website_button = (Button) rootView.findViewById(R.id.sgc_website_button);
-		Button sponsor_button = (Button) rootView.findViewById(R.id.sponser_button);
-		Button facebook_button = (Button) rootView.findViewById(R.id.facebook_button);
 
 		sgc_website_button.setTextColor(Color.parseColor("#000000")); 
-		sponsor_button.setTextColor(Color.parseColor("#000000")); 
-		facebook_button.setTextColor(Color.parseColor("#000000")); 
 		
 		route1_button.setTextColor(Color.parseColor("#000000")); 
 		route2_button.setTextColor(Color.parseColor("#000000")); 
@@ -56,15 +52,6 @@ public class HomeFragment extends Fragment {
 		    public void onClick(View v) {
 		    	
 		    	Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.seagullcentury.org"));
-		    	startActivity(i); 
-		    	
-		    }
-		});
-		
-		sponsor_button.setOnClickListener (new View.OnClickListener() {
-		    public void onClick(View v) {
-		    	
-		    	Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://orgs.salisbury.edu/math/"));
 		    	startActivity(i); 
 		    	
 		    }

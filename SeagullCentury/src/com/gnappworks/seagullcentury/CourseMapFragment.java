@@ -20,7 +20,7 @@ public class CourseMapFragment extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
 	{
 		String url;
-		url = "http://oxford.esrgc.org/maps/seagullcentury/index.html?route="+HomeFragment.routeNumber+"&vendors="+MainActivity.vendors+"&speed="+MainActivity.speed+"&distance="+MainActivity.waypoints;
+		url = "file:///android_asset/index.html?route="+HomeFragment.routeNumber+"&vendors="+MainActivity.vendors+"&speed="+MainActivity.speed+"&distance="+MainActivity.waypoints;
 		View rootView = (View) inflater.inflate(R.layout.course_map_fragment, container, false);
 		webView= (WebView) rootView.findViewById(R.id.webview);
 		webView.getSettings().setJavaScriptEnabled(true);

@@ -56,6 +56,7 @@ ActionBar.TabListener {
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setDisplayShowTitleEnabled(false);
 
 		// Create the adapter that will return a fragment for each of the two
 		// primary sections of the app.
@@ -164,8 +165,8 @@ ActionBar.TabListener {
 		case R.id.sagWagon:
 			//call sag wagon phone number
 			new AlertDialog.Builder(this)
-			.setTitle("Call SAG Wagon?")
-			.setMessage("Are you sure you want to call the SAG Wagon? They will do things such as pick you up if you've decided to call it quits or help you out if your tire goes flat. If this is an emergency, please dial 911.")
+			.setTitle("Call the SAG Wagon?")
+			.setMessage("If you are having a medical emergency, please call 911. If you have an urgent need and cannot continue, please hit OK to call the SAG Wagon.\n\nPLEASE NOTE: Due to the size of the course, it may take a SAG vehicle over an hour to reach you. Your patience is appreciated.")
 			.setIcon(android.R.drawable.ic_dialog_alert)
 			.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {

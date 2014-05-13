@@ -1,66 +1,53 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+         tools:context=".MainActivity$HomeFragment" 
+         android:background="@drawable/background">
+
+<LinearLayout 
     android:id="@+id/home_frame"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".MainActivity$HomeFragment" >
+    >
+
+
 
     
-    
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/sgcbanner" />
-
       <Button
         android:id="@+id/route1_button"
-        android:layout_width="150dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/rec"
+        android:background="@drawable/assateague"
         android:text="@string/route1_button_label" />
+      
+       <Button
+        android:id="@+id/route3_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/snowhill"
+        android:text="@string/route3_button_label"/>
       
         <Button
         android:id="@+id/route2_button"
-        android:layout_width="150dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/rec"
+        android:background="@drawable/princessanne"
         android:text="@string/route2_button_label" />
-        
-          <Button
-        android:id="@+id/route3_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rec"
-        android:text="@string/route3_button_label" />
     
     <Button
         android:id="@+id/sgc_website_button"
-        android:layout_width="150dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/rec"
+        android:background="@drawable/sgcwebsite"
         android:text="@string/sgc_website_button_label" />
 
-    <Button
-        android:id="@+id/sponser_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rec"
-        android:text="@string/sponser_button_label" />
-    
-    
-    <Button
-        android:id="@+id/facebook_button"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/rec"
-        android:text="@string/facebook_button_label" />
 
 </LinearLayout>
+        </ScrollView>
