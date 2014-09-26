@@ -1,6 +1,7 @@
 package com.gnappworks.seagullcentury;
 
 import java.util.List;
+import android.graphics.PorterDuff;
 
 import android.app.TabActivity;
 import android.content.ActivityNotFoundException;
@@ -41,12 +42,17 @@ public class HomeFragment extends Fragment {
 		Button route2_button = (Button) rootView.findViewById(R.id.route2_button);
 		Button route3_button = (Button) rootView.findViewById(R.id.route3_button);
 		Button sgc_website_button = (Button) rootView.findViewById(R.id.sgc_website_button);
-
-		sgc_website_button.setTextColor(Color.parseColor("#000000")); 
 		
-		route1_button.setTextColor(Color.parseColor("#000000")); 
-		route2_button.setTextColor(Color.parseColor("#000000")); 
-		route3_button.setTextColor(Color.parseColor("#000000")); 
+		route1_button.getBackground().setColorFilter(0xFF800000, PorterDuff.Mode.MULTIPLY);
+		route2_button.getBackground().setColorFilter(0xFF800000, PorterDuff.Mode.MULTIPLY);
+		route3_button.getBackground().setColorFilter(0xFF800000, PorterDuff.Mode.MULTIPLY);
+		sgc_website_button.getBackground().setColorFilter(0xFF800000, PorterDuff.Mode.MULTIPLY);
+
+		sgc_website_button.setTextColor(Color.parseColor("#FFFFFF")); 
+		
+		route1_button.setTextColor(Color.parseColor("#FFFFFF")); 
+		route2_button.setTextColor(Color.parseColor("#FFFFFF")); 
+		route3_button.setTextColor(Color.parseColor("#FFFFFF")); 
 		
 		sgc_website_button.setOnClickListener (new View.OnClickListener() {
 		    public void onClick(View v) {

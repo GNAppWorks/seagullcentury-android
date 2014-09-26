@@ -41,7 +41,7 @@ ActionBar.TabListener {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-
+			
 	public static int vendors = 1;
 	public static int speed = 1;
 	public static int waypoints = 1;
@@ -56,7 +56,7 @@ ActionBar.TabListener {
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setDisplayShowTitleEnabled(true);
 
 		// Create the adapter that will return a fragment for each of the two
 		// primary sections of the app.
@@ -171,13 +171,21 @@ ActionBar.TabListener {
 			.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {
 					Intent callIntent = new Intent(Intent.ACTION_CALL);
-					callIntent.setData(Uri.parse("tel:4439073258"));
+					callIntent.setData(Uri.parse("tel:4105436342"));
 					startActivity(callIntent);
 				}})
 				.setNegativeButton(android.R.string.no, null).show();
 			return true;
 		case R.id.facebook:
-
+			 try {
+			    getApplicationContext().getPackageManager().getPackageInfo("com.facebook.katana", 0);
+				Intent intentFacebook = new Intent("android.intent.category.LAUNCHER");
+				intentFacebook.setClassName("com.facebook.katana", "com.facebook.katana.LoginActivity");
+				startActivity(intentFacebook);
+			} catch (Exception e) {
+		        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com")));
+		    }
+			
 			return true;
 		case R.id.twitter:
 			Intent intent = null;

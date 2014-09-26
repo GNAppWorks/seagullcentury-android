@@ -24,6 +24,8 @@ public class CourseMapFragment extends Fragment
 		View rootView = (View) inflater.inflate(R.layout.course_map_fragment, container, false);
 		webView= (WebView) rootView.findViewById(R.id.webview);
 		webView.getSettings().setJavaScriptEnabled(true);
+		webView.getSettings().setAllowFileAccess(true);
+		webView.getSettings().setAllowContentAccess(true);
 	    webView.setWebChromeClient(new WebChromeClient(){
 	    	//Default behavior is that the "Do you want to use location?" doesn't pop up in a WebView. This
 	    	//overrides it and makes that box pop up.
